@@ -10,12 +10,14 @@
     font-weight: 600;
     font-family: Arial;
     font-style: oblique;
+    max-width: 100%;
 }
 
 .date {
     font-size: 20px;
     font-weight: 900;
     font-family: Arial;
+    max-width: 100%;
 }
 
 .button {
