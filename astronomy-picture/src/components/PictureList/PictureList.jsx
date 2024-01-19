@@ -23,36 +23,40 @@ export default function PictureList() {
 
 
     return (
-        <section className={classes.list}>
-            {isLoadedList && pictures.map((elem, index) =>
-                <PictureListItem
-                    title={elem.title}
-                    date={elem.date}
-                    key={index}
-                    pic={elem.url}
-                />
-            )}
-            <p className={classes.text}>Вывести список с: </p>
-            <Input input={inputMinRef} inputDate={inputMin} setInput={setInputMin}/>
-            <p className={classes.text}>по: </p>
-            <Input input={inputMaxRef} inputDate={inputMax} setInput={setInputMax}/>
-            <button className={classes.button} onClick={(event) => {
-                event.preventDefault();
-                if (inputMinRef.current.value > inputMaxRef.current.value ||
-                    inputMinRef.current.value > new Date().toISOString().split('T')[0] ||
-                    inputMaxRef.current.value > new Date().toISOString().split('T')[0] ||
-                    inputMinRef.current.value.split('-')[0] < 2015 ||
-                    inputMaxRef.current.value.split('-')[0] < 2015
-                ) {
-                    alert("Некорректный ввод даты!")
-                } else {
-                    setIsLoadedList(true)
-                    setInputMin(inputMinRef.current.value);
-                    setInputMax(inputMaxRef.current.value);
+        <section className={!isLoadedList ? classes.list : classes.column}>
+            <div className={classes.list}>
+                <p className={classes.text}>Вывести список с: </p>
+                <Input input={inputMinRef} inputDate={inputMin} setInput={setInputMin}/>
+                <p className={classes.text}>по: </p>
+                <Input input={inputMaxRef} inputDate={inputMax} setInput={setInputMax}/>
+                <button className={classes.button} onClick={(event) => {
+                    event.preventDefault();
+                    if (inputMinRef.current.value > inputMaxRef.current.value ||
+                        inputMinRef.current.value > new Date().toISOString().split('T')[0] ||
+                        inputMaxRef.current.value > new Date().toISOString().split('T')[0] ||
+                        inputMinRef.current.value.split('-')[0] < 2015 ||
+                        inputMaxRef.current.value.split('-')[0] < 2015
+                    ) {
+                        alert("Некорректный ввод даты!")
+                    } else {
+                        setIsLoadedList(true)
+                        setInputMin(inputMinRef.current.value);
+                        setInputMax(inputMaxRef.current.value);
+                    }
                 }
-            }
-            }>Вывести
-            </button>
+                }>Вывести
+                </button>
+            </div>
+            <div>
+                {isLoadedList && pictures.map((elem, index) =>
+                    <PictureListItem
+                        title={elem.title}
+                        date={elem.date}
+                        key={index}
+                        pic={elem.url}
+                    />
+                )}
+            </div>
         </section>
     )
 }
