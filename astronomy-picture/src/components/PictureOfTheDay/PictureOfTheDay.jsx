@@ -1,23 +1,26 @@
-import {useEffect, useState} from "react";
+import {useCallback, useEffect} from "react";
 import Picture from "../Picture/Picture.jsx";
+import classes from "./PictureOfTheDay.module.css"
 
-export default function PictureOfTheDay({todayPic, setTodayPicture, date}) {
-    const [isLoaded, setLoaded] = useState(true);
-
-
-    useEffect(() => {
+export default function PictureOfTheDay({pic, setPicture, date, isLoaded, setLoaded}) {
+    
+    const fetchPicture = useCallback(async () => {
         fetch(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&date=${date}`)
             .then(res => res.json())
             .then((res) => {
                 setLoaded(false);
-                setTodayPicture(res.url);
+                setPicture(res.url);
             })
-    }, [date, setTodayPicture])
+    }, [date, setLoaded, setPicture])
+
+    useEffect(() => {
+       fetchPicture()
+    }, [fetchPicture])
 
     return (
-        <>
+        <div className={classes.picture}>
             {isLoaded && <p>Loading ...</p>}
-            {!isLoaded && <Picture picture={todayPic} />}
-        </>
+            {!isLoaded && <Picture picture={pic} />}
+        </div>
     )
 }

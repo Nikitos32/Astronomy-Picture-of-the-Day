@@ -1,26 +1,15 @@
 import {useRef} from "react";
+import Button from "../Button/Button.jsx";
+import Input from "../Input/Input.jsx";
+import classes from "./SearchSection.module.css";
 
-export default function SearchSection({inputDate, setInputDate, setDate}) {
+export default function SearchSection({inputDate, setInputDate}) {
     const input = useRef();
 
     return (
-        <section>
-            <form>
-                <input
-                    ref={input}
-                    max={new Date().toISOString().split('T')[0]}
-                    min={"2015-01-01"} type="date"
-                    value={inputDate}
-                    onChange={(event) => {
-                        setInputDate(event.target.value)
-                    }
-                    }/>
-                <button onClick={(event) => {
-                    event.preventDefault();
-                    setDate(input.current.value)
-                }
-                }>Показать</button>
-            </form>
+        <section className={classes.search}>
+                <Input inputDate={inputDate} setInput={setInputDate} input={input}/>
+                <Button input={input}/>
         </section>
     )
 }

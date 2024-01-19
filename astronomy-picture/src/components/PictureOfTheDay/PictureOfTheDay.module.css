@@ -1,0 +1,6 @@
+.picture {
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    max-width: 100%;
+}

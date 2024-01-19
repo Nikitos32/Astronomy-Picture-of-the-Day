@@ -1,0 +1,30 @@
+.list-item {
+    display: flex;
+    max-width: 100%;
+    background: grey;
+    border-radius: 20px;
+}
+
+.title {
+    font-size: 16px;
+    font-weight: 600;
+    font-family: Arial;
+    font-style: oblique;
+}
+
+.date {
+    font-size: 20px;
+    font-weight: 900;
+    font-family: Arial;
+}
+
+.button {
+    width: 100px;
+    height: 30px;
+    color: white;
+    border: none;
+}
+
+.button:hover {
+    border: 1px solid black;
+}

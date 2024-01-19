@@ -1,14 +1,9 @@
-import {useContext} from "react";
-import {DateContext} from "/src/App"
+import classes from "./Picture.module.css"
 
 export default function Picture({picture}) {
-    const dateToShow = useContext(DateContext)
-
-
     return (
         <div>
-            <h1>Картинка {dateToShow} числа</h1>
-            <img src={picture} alt="Picture"/>
+            <img className={classes.pic} src={picture} alt="Picture"/>
         </div>
     )
 }
