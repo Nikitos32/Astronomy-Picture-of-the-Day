@@ -22,6 +22,7 @@
 
 .button:hover {
     cursor: pointer;
+    background: lightblue;
 }
 
 @media all and (max-width: 640px) {
