@@ -13,7 +13,6 @@ export default function Button({input}) {
                 alert("Некорректный ввод даты!")
             }
             else {
-                buttonProps.setLoaded(true)
                 buttonProps.setDate(input.current.value)
             }
         }

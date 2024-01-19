@@ -1,7 +1,7 @@
 .list-item {
     display: flex;
     max-width: 100%;
-    background: grey;
+    background: gray;
     border-radius: 20px;
 }
 
@@ -10,21 +10,25 @@
     font-weight: 600;
     font-family: Arial;
     font-style: oblique;
+    max-width: 100%;
 }
 
 .date {
     font-size: 20px;
     font-weight: 900;
     font-family: Arial;
+    max-width: 100%;
 }
 
 .button {
+    border-radius: 5px;
     width: 100px;
     height: 30px;
-    color: white;
     border: none;
+    font-family: Arial;
 }
 
 .button:hover {
-    border: 1px solid black;
+    background: lightblue;
+    cursor: pointer;
 }
