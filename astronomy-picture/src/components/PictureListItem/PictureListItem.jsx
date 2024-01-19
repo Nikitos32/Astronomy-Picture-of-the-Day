@@ -7,7 +7,7 @@ export default function PictureListItem({date, title, pic}) {
     const [isShowPicture, setIsShowPicture] = useState(false)
 
     return (
-        <div className={classes.listItem}>
+        <div className={classes.item}>
             <p ref={paragraphWithDate} className={classes.date}>{date}</p>
             <p className={classes.title}>{title}</p>
             {isShowPicture && <Picture picture={pic}/>}
