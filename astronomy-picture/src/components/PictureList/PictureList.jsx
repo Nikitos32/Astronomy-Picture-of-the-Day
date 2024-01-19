@@ -14,7 +14,6 @@ export default function PictureList() {
     const fetchPictures = useCallback(async () => {
         const response = await fetch(`https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&start_date=${inputMin}&end_date=${inputMax}`)
         const pictures = await response.json()
-        setIsLoadedList(false)
         setPictures(pictures);
     }, [inputMax, inputMin])
 
